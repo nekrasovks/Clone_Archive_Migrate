@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/google/uuid"
 )
 
 type CloneConfig struct {
@@ -54,12 +56,12 @@ func main() {
 
 	fmt.Println("✅ Архив успешно создан:", archiveName)
 
-	projectName := "project_name"
+	projectName := "project_number_" + uuid.NewString()
 	fmt.Printf("🏗️ Создаем проект %s в GitLab...\n", projectName)
 
-	gitlabURL := "https://localhost"
-	token := "GitLabToken"
-	description := "test description"
+	gitlabURL := os.Args[6]
+	token := os.Args[7]
+	description := os.Args[8]
 
 	projectID, err := createGitLabProject(gitlabURL, token, projectName, description)
 	if err != nil {
@@ -67,7 +69,7 @@ func main() {
 	}
 
 	fmt.Printf("✅ Проект успешно создан. ID: %d\n", projectID)
-	projectID = 1
+	// projectID = 1
 	fmt.Printf("🚚 Мигрируем архив %s в GitLab проект %d...\n", archiveName, projectID)
 
 	// fmt.Sprintf("%d", projectID)

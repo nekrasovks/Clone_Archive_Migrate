@@ -15,8 +15,7 @@
             "since",
             "commits",
             "GitLabURL",
-            "GitLabTOken",
-            "repo_name",
+            "GitLabURL",
             "description"
         ]
         },
