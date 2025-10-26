@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+        "name": "Launch Local",
+        "type": "go",
+        "request": "launch",
+        "envFile": "${workspaceFolder}/.env",
+        "program": "${workspaceFolder}/cmd",
+        "showLog": true,
+        "args": [
+            "GitHubURL",
+            "GitHubToken",
+            "ClonePath",
+            "since",
+            "commits",
+            "GitLabURL",
+            "GitLabTOken",
+            "repo_name",
+            "description"
+        ]
+        },
+    ],
+}
